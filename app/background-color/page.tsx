@@ -13,6 +13,7 @@ import {
   Video,
 } from "lucide-react";
 import Image from "next/image";
+import { downloadFile } from "../utils/download";
 
 function BackgroundColorPage() {
   const searchParams = useSearchParams();
@@ -164,15 +165,9 @@ function BackgroundColorPage() {
     }
   };
 
-  const handleDownload = () => {
+  const handleDownload = async () => {
     if (!processedImage) return;
-
-    const link = document.createElement("a");
-    link.href = processedImage;
-    link.download = "background-changed-image.png";
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
+    await downloadFile(processedImage, "background-changed-image.png");
   };
 
   // Navigation handlers

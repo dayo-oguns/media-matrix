@@ -11,6 +11,7 @@ import {
   ImagePlus,
   Video,
 } from "lucide-react";
+import { downloadFile } from "../utils/download";
 
 function ChatPage() {
   const searchParams = useSearchParams();
@@ -167,17 +168,7 @@ function ChatPage() {
     imageUrl: string,
     filename: string = "generated-image.png",
   ) => {
-    try {
-      // Create a temporary link element to trigger download
-      const link = document.createElement("a");
-      link.href = imageUrl;
-      link.download = filename;
-      document.body.appendChild(link);
-      link.click();
-      document.body.removeChild(link);
-    } catch (error) {
-      console.error("Error downloading image:", error);
-    }
+    await downloadFile(imageUrl, filename);
   };
 
   const handleSubmit = async () => {

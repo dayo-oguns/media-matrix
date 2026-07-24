@@ -201,7 +201,7 @@ Create a `.env` file with:
 
 ```env
 UNSPLASH_ACCESS_KEY=your_unsplash_access_key
-NEXT_PUBLIC_APP_URL=http://localhost:3000
+GEMINI_API_KEY=your_gemini_access_key
 ```
 
 ## 🤝 Contributing

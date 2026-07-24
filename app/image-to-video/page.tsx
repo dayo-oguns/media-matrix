@@ -4,6 +4,7 @@ import { useState, useRef, useEffect, Suspense } from "react";
 import Image from "next/image";
 import { useRouter, useSearchParams } from "next/navigation";
 import { Download, Video } from "lucide-react";
+import { downloadFile } from "../utils/download";
 
 function ImageToVideoPage() {
   const router = useRouter();
@@ -163,17 +164,7 @@ function ImageToVideoPage() {
     videoUrl: string,
     filename: string = "generated-video.mp4",
   ) => {
-    try {
-      // Create a temporary link element to trigger download
-      const link = document.createElement("a");
-      link.href = videoUrl;
-      link.download = filename;
-      document.body.appendChild(link);
-      link.click();
-      document.body.removeChild(link);
-    } catch (error) {
-      console.error("Error downloading video:", error);
-    }
+    await downloadFile(videoUrl, filename);
   };
 
   const handleSubmit = async () => {
