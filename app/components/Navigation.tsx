@@ -27,9 +27,9 @@ export default function Navigation() {
 
   return (
     <nav className="border-b border-gray-200 dark:border-gray-800 bg-white dark:bg-black">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-16">
-          <div className="flex items-center space-x-3">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 overflow-x-auto no-scrollbar">
+        <div className="flex justify-between items-center h-16 min-w-full gap-8">
+          <div className="flex items-center space-x-3 flex-shrink-0">
             <Image
               preload={true}
               src="/images/mmicon.png"
@@ -38,11 +38,11 @@ export default function Navigation() {
               height={32}
               unoptimized={true}
             />
-            <h1 className="text-xl font-bold text-gray-900 dark:text-white">
+            <h1 className="text-xl font-bold text-gray-900 dark:text-white whitespace-nowrap">
               Media Matrix
             </h1>
           </div>
-          <div className="flex space-x-8">
+          <div className="flex space-x-4 sm:space-x-8 flex-shrink-0">
             <Link
               href="/"
               className="text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white px-3 py-2 text-sm font-medium"
